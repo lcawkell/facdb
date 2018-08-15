@@ -11500,23 +11500,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cawke\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/root/.nuget/packages/": {},
+    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\cawke\\Documents\\git\\facdb\\facdb.csproj",
+      "projectUniqueName": "/home/vagrant/facdb/facdb.csproj",
       "projectName": "facdb",
-      "projectPath": "c:\\Users\\cawke\\Documents\\git\\facdb\\facdb.csproj",
-      "packagesPath": "C:\\Users\\cawke\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\cawke\\Documents\\git\\facdb\\obj\\",
+      "projectPath": "/home/vagrant/facdb/facdb.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/home/vagrant/facdb/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\cawke\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"

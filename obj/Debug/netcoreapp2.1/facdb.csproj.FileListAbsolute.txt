@@ -26,3 +26,17 @@ C:/Users/cawke/Documents/git/facdb/obj/Debug/netcoreapp2.1/facdb.pdb
 /home/vagrant/facdb/obj/Debug/netcoreapp2.1/facdb.RazorTargetAssemblyInfo.cache
 /home/vagrant/facdb/obj/Debug/netcoreapp2.1/facdb.dll
 /home/vagrant/facdb/obj/Debug/netcoreapp2.1/facdb.pdb
+C:/Users/Lucas/Documents/GIT/facdb/bin/Debug/netcoreapp2.1/facdb.deps.json
+C:/Users/Lucas/Documents/GIT/facdb/bin/Debug/netcoreapp2.1/facdb.runtimeconfig.json
+C:/Users/Lucas/Documents/GIT/facdb/bin/Debug/netcoreapp2.1/facdb.runtimeconfig.dev.json
+C:/Users/Lucas/Documents/GIT/facdb/bin/Debug/netcoreapp2.1/facdb.dll
+C:/Users/Lucas/Documents/GIT/facdb/bin/Debug/netcoreapp2.1/facdb.pdb
+C:/Users/Lucas/Documents/GIT/facdb/obj/Debug/netcoreapp2.1/facdb.csprojAssemblyReference.cache
+C:/Users/Lucas/Documents/GIT/facdb/obj/Debug/netcoreapp2.1/facdb.csproj.CoreCompileInputs.cache
+C:/Users/Lucas/Documents/GIT/facdb/obj/Debug/netcoreapp2.1/facdb.RazorAssemblyInfo.cache
+C:/Users/Lucas/Documents/GIT/facdb/obj/Debug/netcoreapp2.1/facdb.RazorAssemblyInfo.cs
+C:/Users/Lucas/Documents/GIT/facdb/obj/Debug/netcoreapp2.1/facdb.AssemblyInfoInputs.cache
+C:/Users/Lucas/Documents/GIT/facdb/obj/Debug/netcoreapp2.1/facdb.AssemblyInfo.cs
+C:/Users/Lucas/Documents/GIT/facdb/obj/Debug/netcoreapp2.1/facdb.RazorTargetAssemblyInfo.cache
+C:/Users/Lucas/Documents/GIT/facdb/obj/Debug/netcoreapp2.1/facdb.dll
+C:/Users/Lucas/Documents/GIT/facdb/obj/Debug/netcoreapp2.1/facdb.pdb

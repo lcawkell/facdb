@@ -1,4 +1,5 @@
 project = File.basename(File.expand_path("."))
+projectName = "facdb"
 guest_home = "/home/vagrant"
 host_home = File.expand_path("~")
 
@@ -6,9 +7,9 @@ Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/xenial64"
     config.vm.box_check_update = false
     config.vm.provider "virtualbox" do |vb|
-      vb.memory = "2048" # 2GB
-      vb.cpus = 2
-      vb.gui = true
+        vb.name = "FacDB"
+        vb.memory = "2048" # 2GB
+        vb.cpus = 2
     end
 
     config.vm.hostname = "VagrantTest"
@@ -20,7 +21,7 @@ Vagrant.configure("2") do |config|
     config.vm.network :forwarded_port, guest: 5001, host: 5001 # Kestral (dotnet dev https)
 
     config.vm.provision :shell, inline: <<-SHELL
-        MSSQL_SA_PASSWORD='Om33z9d2l4d456a'
+        MSSQL_SA_PASSWORD='M3d1T2018'
         MSSQL_PID='evaluation'
         SQL_INSTALL_AGENT='y'
 
@@ -31,45 +32,38 @@ Vagrant.configure("2") do |config|
         fi
 
         echo Adding Microsoft repositories...
-        sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 
         repoargs="$(curl https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2017.list)"
-        sudo add-apt-repository "${repoargs}"
+        add-apt-repository "${repoargs}"
 
         repoargs="$(curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list)"
-        sudo add-apt-repository "${repoargs}"
+        add-apt-repository "${repoargs}"
 
         echo Running apt-get update -y...
-        sudo apt-get update -y
+        apt-get update -y
 
         echo Installing SQL Server...
-        sudo apt-get install -y mssql-server
+        apt-get install -y mssql-server
 
         echo Running mssql-conf setup...
-        sudo MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD MSSQL_PID=$MSSQL_PID /opt/mssql/bin/mssql-conf -n setup accept-eula
+        MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD MSSQL_PID=$MSSQL_PID /opt/mssql/bin/mssql-conf -n setup accept-eula
 
         echo Installing mssql-tools and unixODBC developer...
-        sudo ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
+        ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
 
         echo Adding SQL Server tools to your path...
         echo PATH="$PATH:/opt/mssql-tools/bin" >> ~/.bash_profile
         echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 
-        # Optional SQL Server Agent installation:
-        if [ ! -z $SQL_INSTALL_AGENT ]
-            then
-            echo Installing SQL Server Agent...
-            sudo apt-get install -y mssql-server-agent
-        fi
-
         # Configure firewall to allow TCP port 1433:
         echo Configuring UFW to allow traffic on port 1433...
-        sudo ufw allow 1433/tcp
-        sudo ufw reload
+        ufw allow 1433/tcp
+        ufw reload
 
         # Restart SQL Server after installing:
         echo Restarting SQL Server...
-        sudo systemctl restart mssql-server
+        systemctl restart mssql-server
 
         # Connect to server and get the version:
         counter=1
@@ -98,6 +92,7 @@ Vagrant.configure("2") do |config|
         ln -sfn /opt/mssql-tools/bin/sqlcmd /usr/bin/sqlcmd
 
         sqlcmd -S localhost -U SA -P $MSSQL_SA_PASSWORD -Q "SELECT Name from sys.Databases"
+        sqlcmd -S localhost -U SA -P $MSSQL_SA_PASSWORD -Q "CREATE DATBASE "$projectName
 
         echo 'Installing dotnet core'
         wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
@@ -109,8 +104,23 @@ Vagrant.configure("2") do |config|
 
         # -q -y means quietly install and assume yes to all prompts
 
+        nginx=stable # use nginx=development for latest development version
+        add-apt-repository -y ppa:nginx/$nginx
+        apt-get update
+        apt-get -y -q install nginx
+
+        service nginx start
+
+        cp /home/vagrant/facdb/default /etc/nginx/sites-available/
+
+        nginx -s reload
+
         # Start running the dev server on the code
-        cd $project
+        cd facdb
+
+        dotnet ef migrations add initial
+        dotnet ef database update
+
         dotnet watch run
 
     SHELL
