@@ -1,0 +1,17 @@
+/home/vagrant/facdb/obj/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.csprojAssemblyReference.cache
+/home/vagrant/facdb/bin/Debug/netcoreapp2.1/ubuntu.16.04-x64/libhostpolicy.so
+/home/vagrant/facdb/bin/Debug/netcoreapp2.1/ubuntu.16.04-x64/libhostfxr.so
+/home/vagrant/facdb/bin/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb
+/home/vagrant/facdb/bin/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.deps.json
+/home/vagrant/facdb/bin/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.runtimeconfig.json
+/home/vagrant/facdb/bin/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.runtimeconfig.dev.json
+/home/vagrant/facdb/bin/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.dll
+/home/vagrant/facdb/bin/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.pdb
+/home/vagrant/facdb/obj/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.csproj.CoreCompileInputs.cache
+/home/vagrant/facdb/obj/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.RazorAssemblyInfo.cache
+/home/vagrant/facdb/obj/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.RazorAssemblyInfo.cs
+/home/vagrant/facdb/obj/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.AssemblyInfoInputs.cache
+/home/vagrant/facdb/obj/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.AssemblyInfo.cs
+/home/vagrant/facdb/obj/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.RazorTargetAssemblyInfo.cache
+/home/vagrant/facdb/obj/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.dll
+/home/vagrant/facdb/obj/Debug/netcoreapp2.1/ubuntu.16.04-x64/facdb.pdb

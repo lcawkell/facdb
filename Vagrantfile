@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
       vb.memory = "2048" # 2GB
       vb.cpus = 2
+      vb.gui = true
     end
 
     config.vm.hostname = "VagrantTest"
@@ -15,6 +16,8 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder ".", "/vagrant", disabled: true
     config.vm.network :forwarded_port, guest: 80, host: 8000 # HTTP
     config.vm.network :forwarded_port, guest: 1433, host: 1433 # SQLServer
+    config.vm.network :forwarded_port, guest: 5000, host: 5000 # Kestral (dotnet dev http)
+    config.vm.network :forwarded_port, guest: 5001, host: 5001 # Kestral (dotnet dev https)
 
     config.vm.provision :shell, inline: <<-SHELL
         MSSQL_SA_PASSWORD='Om33z9d2l4d456a'
@@ -99,11 +102,16 @@ Vagrant.configure("2") do |config|
         echo 'Installing dotnet core'
         wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
         dpkg -i packages-microsoft-prod.deb
-        apt-get install apt-transport-https
+        apt-get -q -y install apt-transport-https
         apt-get update
-        apt-get install aspnetcore-runtime-2.1
-        apt-get install dotnet-sdk-2.1
+        apt-get -q -y install aspnetcore-runtime-2.1
+        apt-get -q -y install dotnet-sdk-2.1
 
+        # -q -y means quietly install and assume yes to all prompts
+
+        # Start running the dev server on the code
+        cd $project
+        dotnet watch run
 
     SHELL
 
