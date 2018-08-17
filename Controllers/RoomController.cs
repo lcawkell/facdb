@@ -38,7 +38,7 @@ namespace facdb.Controllers {
             _context.rooms.Add(room);
             _context.SaveChanges();
 
-            return CreatedAtRoute("GetTodo", new { id = room.id, title = room.title, area = room.area});
+            return CreatedAtRoute("GetTodo", new { id = room.id, title = room.title, area = room.area}, room);
         }
     }
 }

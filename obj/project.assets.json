@@ -11506,11 +11506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cawke\\Documents\\git\\facdb\\facdb.csproj",
+      "projectUniqueName": "c:\\Users\\cawke\\Documents\\git\\facdb\\facdb.csproj",
       "projectName": "facdb",
-      "projectPath": "C:\\Users\\cawke\\Documents\\git\\facdb\\facdb.csproj",
+      "projectPath": "c:\\Users\\cawke\\Documents\\git\\facdb\\facdb.csproj",
       "packagesPath": "C:\\Users\\cawke\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cawke\\Documents\\git\\facdb\\obj\\",
+      "outputPath": "c:\\Users\\cawke\\Documents\\git\\facdb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
