@@ -1,0 +1,23 @@
+.root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+    padding: 30px;
+    box-shadow: 0px 0px 1px #bbb;
+    width: 300px;
+    position: relative;
+    background: #eee;
+}
+
+.actions {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.actions:hover {
+    font-weight: 700;
+}

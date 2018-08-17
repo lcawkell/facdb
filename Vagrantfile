@@ -121,8 +121,6 @@ Vagrant.configure("2") do |config|
         dotnet ef migrations add initial
         dotnet ef database update
 
-        dotnet watch run
-
     SHELL
 
 end

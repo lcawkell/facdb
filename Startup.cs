@@ -38,7 +38,7 @@ namespace facdb
             builder.InitialCatalog = "facdb";
             
             services.AddDbContext<FacDBContext>(opt => opt.UseSqlServer(builder.ConnectionString));
-
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -55,6 +55,9 @@ namespace facdb
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(
+                options => options.WithOrigins("https://localhost").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()
+            );
             app.UseMvc();
             app.UseDefaultFiles().UseStaticFiles();
         }
